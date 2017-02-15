@@ -28,13 +28,20 @@ namespace FindAndReplace.Objects
       return _replacement;
     }
 
-    public string FindAndReplace(UserInput userInput)
+    public string FindAndReplace()
     {
       string originalInput = GetOriginal();
       string wordInput = GetWord();
       string replacementInput = GetReplacement();
 
-      return originalInput;
+      if (originalInput.Equals(wordInput))
+      {
+        return replacementInput;
+      }
+      else
+      {
+        return originalInput;
+      }
     }
   }
 }

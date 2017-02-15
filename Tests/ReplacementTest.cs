@@ -15,8 +15,21 @@ namespace FindAndReplace
       string replacement = "bananas";
 
       UserInput testUserInput = new UserInput(original, word, replacement);
-      string output = testUserInput.FindAndReplace(testUserInput);
+      string output = testUserInput.FindAndReplace();
       string expectedOutput = original;
+      Assert.Equal(expectedOutput, output);
+    }
+
+    [Fact]
+    public void FindAndReplace_ExactStringMatch_replace_string()
+    {
+      string original = "hello";
+      string word = "hello";
+      string replacement = "goodbye";
+
+      UserInput testUserInput = new UserInput(original, word, replacement);
+      string output = testUserInput.FindAndReplace();
+      string expectedOutput = replacement;
       Assert.Equal(expectedOutput, output);
     }
   }
