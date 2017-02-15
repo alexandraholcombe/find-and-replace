@@ -33,15 +33,21 @@ namespace FindAndReplace.Objects
       string originalInput = GetOriginal();
       string wordInput = GetWord();
       string replacementInput = GetReplacement();
-
+      string result;
       if (originalInput.Equals(wordInput))
       {
         return replacementInput;
+      }
+      else if (originalInput.Contains(wordInput))
+      {
+          result = originalInput.Replace(wordInput, replacementInput);
+        return result;
       }
       else
       {
         return originalInput;
       }
+
     }
   }
 }

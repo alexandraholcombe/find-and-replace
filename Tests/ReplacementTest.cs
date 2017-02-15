@@ -32,5 +32,17 @@ namespace FindAndReplace
       string expectedOutput = replacement;
       Assert.Equal(expectedOutput, output);
     }
+    [Fact]
+    public void FindAndReplace_ExactWordMatch_replace_word()
+    {
+      string original = "Hello world";
+      string word = "world";
+      string replacement = "universe";
+
+      UserInput testUserInput = new UserInput(original, word, replacement);
+      string output = testUserInput.FindAndReplace();
+      string expectedOutput = "Hello universe";
+      Assert.Equal(expectedOutput, output);
+    }
   }
 }
