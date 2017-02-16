@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace FindAndReplace.Objects
 {
@@ -33,14 +34,30 @@ namespace FindAndReplace.Objects
       string originalInput = GetOriginal();
       string wordInput = GetWord();
       string replacementInput = GetReplacement();
+      // string lowerOriginalInput = originalInput.ToLower();
+      // string lowerWordInput = wordInput.ToLower();
+      // string lowerReplacementInput = wordInput.ToLower();
+      List<string> replacementList = new List<string>(){};
       string result;
       if (originalInput.Equals(wordInput))
       {
         return replacementInput;
       }
-      else if (originalInput.Contains(wordInput))
+      else if (originalInput.ToLower().Contains(wordInput.ToLower()))
       {
-          result = originalInput.Replace(wordInput, replacementInput);
+        string[] originalSplit = originalInput.Split(' ');
+        for (int i = 0; i < originalSplit.Length; i++)
+        {
+          if (originalSplit[i].ToLower().Equals(wordInput.ToLower()))
+          {
+            replacementList.Add(replacementInput);
+          }
+          else
+          {
+            replacementList.Add(originalSplit[i]);
+          }
+        }
+        result = string.Join(" ", replacementList.ToArray());
         return result;
       }
       else
