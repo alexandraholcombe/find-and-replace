@@ -34,9 +34,6 @@ namespace FindAndReplace.Objects
       string originalInput = GetOriginal();
       string wordInput = GetWord();
       string replacementInput = GetReplacement();
-      // string lowerOriginalInput = originalInput.ToLower();
-      // string lowerWordInput = wordInput.ToLower();
-      // string lowerReplacementInput = wordInput.ToLower();
       List<string> replacementList = new List<string>(){};
       string result;
       if (originalInput.Equals(wordInput))
